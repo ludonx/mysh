@@ -1,0 +1,2 @@
+{"id_user" : 1, "nom" : "Tekam", "prenom" : "ludovik", "password" : "a",  "domaines" : ["SGBD", "NoSQL", "RI", "XML"], "Habite" : {"adresse" : "292 rue Saint Martin", "ville" : "Paris"} }
+{"id_user" : 2, "nom" : "a", "prenom" : "a", "password" : "a",  "domaines" : ["SGBD", "NoSQL", "RI", "XML"], "Habite" : {"adresse" : "292 rue Saint Martin", "ville" : "Paris"} } 
