@@ -3,6 +3,7 @@ library(shiny)
 shinyUI(
     navbarPage(
       title = "Intergromics PFA",
+      
       tabPanel("Connexion",
                fluidPage(
                  titlePanel(title = " Connexion "),
@@ -13,9 +14,10 @@ shinyUI(
                      submitButton("Connexion")
                    ),#end  sidebarPanel
                    mainPanel(
-                     textOutput("outlogin"),
-                     textOutput("outpwd"),
-                     tableOutput("tab")
+                     textOutput("out_login"),
+                     textOutput("out_pwd"),
+                     tableOutput("tab"),
+                     textOutput("res_con")
                    )#end mainPanel
                    
                  )#end sidebarLayout
@@ -23,16 +25,7 @@ shinyUI(
                
                ),#end tabPanel 
       
-      tabPanel("import Doc",
-               sidebarLayout(
-                 sidebarPanel(
-                   sliderInput("b", "Select no. of BINs", min = 5, max = 20,value = 10)
-                 ),#end  sidebarPanel
-                 mainPanel(
-                   plotOutput("plot")
-                 )#end mainPanel
-               )
-      ),#end tabPanel
+      tabPanel("import Doc", tableOutput("data")),#end tabPanel
       
       tabPanel("recherche",
                sidebarLayout(
