@@ -2,16 +2,16 @@ library(shiny)
 
 shinyUI(
     navbarPage(
-      title = "Intergromics PFA",
-      
-      tabPanel("Connexion",
+      title = "Integromics PFA",
+
+      tabPanel("Log in",
                fluidPage(
-                 titlePanel(title = " Connexion "),
+                 titlePanel(title = " Log in "),
                  sidebarLayout(
                    sidebarPanel(
-                     textInput("login","Login",placeholder="login..."),
-                     passwordInput("pwd","Password",placeholder="passeword..."),
-                     submitButton("Connexion")
+                     textInput("login","Login",placeholder="Login..."),
+                     passwordInput("pwd","Password",placeholder="Password..."),
+                     submitButton("Log in")
                    ),#end  sidebarPanel
                    mainPanel(
                      textOutput("out_login"),
@@ -19,16 +19,16 @@ shinyUI(
                      tableOutput("tab"),
                      textOutput("res_con")
                    )#end mainPanel
-                   
+
                  )#end sidebarLayout
                )#end fluidPage
-               
-               ),#end tabPanel 
-      
+
+               ),#end tabPanel
+
       ###########################################################################################################
       ###########################################################################################################
-      tabPanel("import Doc",
-               
+      tabPanel("Import docs",
+
                fluidPage(
                  titlePanel("File Input"),
                  sidebarLayout(
@@ -42,25 +42,25 @@ shinyUI(
                      br(),
                      radioButtons(inputId = 'sep', label = 'Separator', choices = c(Comma=',',Semicolon=';',Tab='\t', Space=''), selected = ','),
                      submitButton("Actualiser") # pour valider l'importation dans le cas ou on change de separateur par exemple
-                     
+
                    ),
                    mainPanel(
                      uiOutput("tb")
-                     
+
                      # use below code if you want the tabset programming in the main panel. If so, then tabset will appear when the app loads for the first time.
                      #       tabsetPanel(tabPanel("Summary", verbatimTextOutput("sum")),
                      #                   tabPanel("Data", tableOutput("table")))
                    )
-                   
+
                  )
                )
-               
+
                ),#end tabPanel
-      
-      
+
+
       ###########################################################################################################
       ###########################################################################################################
-      tabPanel("recherche",
+      tabPanel("Research",
                sidebarLayout(
                  sidebarPanel(
                    sliderInput("b", "Select no. of BINs", min = 5, max = 20,value = 10)
@@ -70,18 +70,18 @@ shinyUI(
                  )#end mainPanel
                )
       ),#end tabPanel
-      
+
       ###########################################################################################################
       ###########################################################################################################
-      navbarMenu("Analyse Options",
+      navbarMenu("Analysis options",
                  tabPanel("Menu Analyse A - Summary stats", verbatimTextOutput("summary")),
                  tabPanel("Menu Analyse B - Link to code",
                           h4(HTML(paste("Thanks for watching the video. Reference code available at the following", a(href="https://github.com/aagarw30/R-Shinyapp-Tutorial/tree/master/shinylayouts/navbarpage%20demo", "link"), "."))),
                           h4(HTML(paste("In case you have questions", a(href="mailto:tekamludovik23@gmail.com", "email me"), ".")))
-                          
+
                  ))
     )#end navbarPage
-  
-  
-  
+
+
+
 )#end shinyUI
