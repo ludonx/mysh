@@ -3,7 +3,7 @@ library(shiny)
 shinyUI(
     navbarPage(
       title = "Integromics PFA",
-
+      
       tabPanel("Log in",
                fluidPage(
                  titlePanel(title = " Log in "),
@@ -19,16 +19,16 @@ shinyUI(
                      tableOutput("tab"),
                      textOutput("res_con")
                    )#end mainPanel
-
+                   
                  )#end sidebarLayout
                )#end fluidPage
-
-               ),#end tabPanel
-
+               
+               ),#end tabPanel 
+      
       ###########################################################################################################
       ###########################################################################################################
-      tabPanel("Import docs",
-
+      tabPanel("Database",
+               
                fluidPage(
                  titlePanel("File Input"),
                  sidebarLayout(
@@ -42,25 +42,32 @@ shinyUI(
                      br(),
                      radioButtons(inputId = 'sep', label = 'Separator', choices = c(Comma=',',Semicolon=';',Tab='\t', Space=''), selected = ','),
                      submitButton("Actualiser") # pour valider l'importation dans le cas ou on change de separateur par exemple
-
+                     
                    ),
                    mainPanel(
                      uiOutput("tb")
-
+                     
                      # use below code if you want the tabset programming in the main panel. If so, then tabset will appear when the app loads for the first time.
                      #       tabsetPanel(tabPanel("Summary", verbatimTextOutput("sum")),
                      #                   tabPanel("Data", tableOutput("table")))
                    )
-
+                   
                  )
                )
-
+               
                ),#end tabPanel
-
-
+      
+      
       ###########################################################################################################
       ###########################################################################################################
-      tabPanel("Research",
+      tabPanel("Query",
+               titlePanel("Query")
+      ),#end tabPanel
+      
+      ###########################################################################################################
+      ###########################################################################################################
+      tabPanel("Analysis",
+               titlePanel("Analysis"),
                sidebarLayout(
                  sidebarPanel(
                    sliderInput("b", "Select no. of BINs", min = 5, max = 20,value = 10)
@@ -70,7 +77,6 @@ shinyUI(
                  )#end mainPanel
                )
       ),#end tabPanel
-
       ###########################################################################################################
       ###########################################################################################################
       navbarMenu("Analysis options",
@@ -78,10 +84,22 @@ shinyUI(
                  tabPanel("Menu Analyse B - Link to code",
                           h4(HTML(paste("Thanks for watching the video. Reference code available at the following", a(href="https://github.com/aagarw30/R-Shinyapp-Tutorial/tree/master/shinylayouts/navbarpage%20demo", "link"), "."))),
                           h4(HTML(paste("In case you have questions", a(href="mailto:tekamludovik23@gmail.com", "email me"), ".")))
-
-                 ))
-    )#end navbarPage
-
-
-
+                          
+                 )
+      ), #end navbarMenu
+      
+      #TO DO LIST
+      #Will have to be removed once everything here is done
+      
+      
+      tabPanel("To do list",
+               titlePanel("To do list"),
+               htmlOutput("tdl_text")
+      )#end to do list
+    )
+    #end navbarPage
+  
+  
+  
 )#end shinyUI
+
