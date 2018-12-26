@@ -65,58 +65,74 @@ shinyUI(
                p("Je ne sais pas comment faire pour faire en sorte que la seconde permette les choix multiples."),
                p("Laquelle tu préfères ?"),
                titlePanel("Query"),
-               navlistPanel(
-                 "Choose a project",
-                 tabPanel("Project1",
-                          titlePanel("Choose gene catalogs"),
-                          checkboxInput("checkbox", label = "Project1: Genes1", value = FALSE),
-                          checkboxInput("checkbox", label = "Project1: Genes2", value = FALSE),
-                          checkboxInput("checkbox", label = "Project1: Genes3", value = FALSE),
-                          titlePanel("Choose MGS catalogs"),
-                          checkboxInput("checkbox", label = "Project1: MGS1", value = FALSE),
-                          checkboxInput("checkbox", label = "Project1: MGS2", value = FALSE),
-                          checkboxInput("checkbox", label = "Project1: MGS3", value = FALSE)
-                          
+               
+               sidebarLayout(position = "right",
+                 sidebarPanel(
+                   h1("Checkboxes go here"),
+                   h1("Button goes here"),
+                   h3(HTML("Query results")),
+                   h4(HTML("<br>Number of genes<br>")),
+                   p("140"),
+                   h4(HTML("<br>Number of MGS<br>")),
+                   p("8")
                  ),
-                 tabPanel("Project2",
-                          navlistPanel(
-                            "Choose gene catalogs",
-                            tabPanel("Project2: Genes1",
-                                     h3("You clicked on the first element of the second list")
-                            ),
-                            tabPanel("Project2: Genes2",
-                                     h3("You clicked on the second element of the second list")
-                            ),
-                            tabPanel("Project2: Genes3",
-                                     h3("You clicked on the third element of the second list")
-                            )
-                          ),
-                          navlistPanel(
-                            "Choose MGS catalogs",
-                            tabPanel("Project2: MGS1",
-                                     h3("You clicked on the fourth element of the second list")
-                            ),
-                            tabPanel("Project2: MGS2",
-                                     h3("You clicked on the fifth element of the second list")
-                            ),
-                            tabPanel("Project2: MGS3",
-                                     h3("You clicked on the sixth element of the second list")
-                            )
-                          )
-                 ),
-                 tabPanel("Project3",
-                          selectInput("genes_cat", "Choose gene catalogs",
-                                      list(`Project 3 gene catalogs a` = c("Gene catalog 1", "Gene catalog 2", "Gene catalog 3"),
-                                           `Project 3 gene catalogs b` = c("Gene catalog 4", "Gene catalog 5", "Gene catalog 6"),
-                                           `Project 3 gene catalogs c` = c("Gene catalog 7", "Gene catalog 8", "Gene catalog 9")),
-                                      multiple = TRUE
-                          ),
-                          selectInput("mgs_cat", "Choose MGS catalogs:",
-                                      list(`Project 3 MGS catalogs a` = c("MGS catalog 1", "MGS catalog 2", "MGS catalog 3"),
-                                           `Project 3 MGS catalogs b` = c("MGS catalog 4", "MGS catalog 5", "MGS catalog 6"),
-                                           `Project 3 MGS catalogs c` = c("MGS catalog 7", "MGS catalog 8", "MGS catalog 9")),
-                                      multiple = TRUE
-                          )
+                 mainPanel(
+                   
+                   navlistPanel(
+                     "Choose a project",
+                     tabPanel("Project1",
+                              selectInput("genes_cat", "Choose gene catalogs",
+                                          list(`Project 3 gene catalogs a` = c("Gene catalog 1", "Gene catalog 2", "Gene catalog 3"),
+                                               `Project 3 gene catalogs b` = c("Gene catalog 4", "Gene catalog 5", "Gene catalog 6"),
+                                               `Project 3 gene catalogs c` = c("Gene catalog 7", "Gene catalog 8", "Gene catalog 9")),
+                                          multiple = TRUE
+                              ),
+                              selectInput("mgs_cat", "Choose MGS catalogs:",
+                                          list(`Project 3 MGS catalogs a` = c("MGS catalog 1", "MGS catalog 2", "MGS catalog 3"),
+                                               `Project 3 MGS catalogs b` = c("MGS catalog 4", "MGS catalog 5", "MGS catalog 6"),
+                                               `Project 3 MGS catalogs c` = c("MGS catalog 7", "MGS catalog 8", "MGS catalog 9")),
+                                          multiple = TRUE
+                              )
+                     ),
+                     tabPanel("Project2",
+                              navlistPanel(
+                                "Choose gene catalogs",
+                                tabPanel("Project2: Genes1",
+                                         h3("1")
+                                ),
+                                tabPanel("Project2: Genes2",
+                                         h3("2")
+                                ),
+                                tabPanel("Project2: Genes3",
+                                         h3("3")
+                                )
+                              ),
+                              navlistPanel(
+                                "Choose MGS catalogs",
+                                tabPanel("Project2: MGS1",
+                                         h3("4")
+                                ),
+                                tabPanel("Project2: MGS2",
+                                         h3("5")
+                                ),
+                                tabPanel("Project2: MGS3",
+                                         h3("6")
+                                )
+                              
+                     )
+                   ),
+                   tabPanel("Project3",
+                            titlePanel("Choose gene catalogs"),
+                            checkboxInput("checkbox", label = "Project3: Genes1", value = FALSE),
+                            checkboxInput("checkbox", label = "Project3: Genes2", value = FALSE),
+                            checkboxInput("checkbox", label = "Project3: Genes3", value = FALSE),
+                            titlePanel("Choose MGS catalogs"),
+                            checkboxInput("checkbox", label = "Project3: MGS1", value = FALSE),
+                            checkboxInput("checkbox", label = "Project3: MGS2", value = FALSE),
+                            checkboxInput("checkbox", label = "Project3: MGS3", value = FALSE)
+                            
+                   )
+                   )
                  )
                )
       ),#end tabPanel
