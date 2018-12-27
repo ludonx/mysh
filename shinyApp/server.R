@@ -85,8 +85,18 @@ shinyServer(
     })
     
     ##################################
+    ########## QUERY PANEL ###########
+    ##################################
+    
+    observeEvent(input$do, {
+      session$sendCustomMessage(type = 'testmessage',
+                                message = 'Thank you for clicking')
+    })
+    
+    ##################################
     ######## TO DO LIST PANEL ########
     ##################################
+    
     output$tdl_text <- renderUI({
       HTML(paste("<b>Database</b>",
                  "Ajouter des catalogues de gènes à la base de données",

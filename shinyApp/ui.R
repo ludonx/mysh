@@ -68,9 +68,14 @@ shinyUI(
                
                sidebarLayout(position = "right",
                  sidebarPanel(
-                   h1("Checkboxes go here"),
-                   h1("Button goes here"),
-                   h3(HTML("Query results")),
+                   h3("Query options"),
+                   checkboxInput("something", label = "Something", value = FALSE),
+                   checkboxInput("somethingelse", label = "Something else", value = FALSE),
+                   checkboxInput("againsomethingelse", label = "Again something else", value = FALSE),
+                   actionButton("query_button", "Launch query"),
+                   tags$head(tags$script(src = "query-message-handler.js")),
+                   actionButton("do", "Click Me"),
+                   h3(HTML("<br>Query results")),
                    h4(HTML("<br>Number of genes<br>")),
                    p("140"),
                    h4(HTML("<br>Number of MGS<br>")),
