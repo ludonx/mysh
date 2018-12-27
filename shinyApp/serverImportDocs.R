@@ -32,8 +32,8 @@ serverImportDocs <-
     # the following renderUI is used to dynamically generate the tabsets when the file is loaded. Until the file is loaded, app will not show the tabset.
     output$tb <- renderUI({
       if(is.null(data()))
-        h5("Powered by", tags$img(src="RStudio-Ball.png", height=200, width=400))
+        h5("Powered by", tags$img(src="./RStudio-Ball.png", height=200, width=400))
       else
         tabsetPanel(tabPanel("About file", tableOutput("filedf")),tabPanel("Data", tableOutput("table")),tabPanel("Summary", tableOutput("sum")))
     })
-  }
+}

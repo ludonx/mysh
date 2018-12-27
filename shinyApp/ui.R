@@ -1,12 +1,10 @@
 library(shiny)
-source("uiLogIn.R")
-source("uiImportDocs.R")
-source("uiQuery.R")
-source("uiAnalysis.R")
+source("./uiLogIn.R")
+source("./uiImportDocs.R")
+source("./uiQuery.R")
+source("./uiAnalysis.R")
 #source("ui.R")
 #source("ui.R")
-
-
 
 shinyUI(
   navbarPage(
@@ -64,4 +62,5 @@ shinyUI(
 
 
 )#end shinyUI
+
 

@@ -1,8 +1,8 @@
 library(shiny)
-source("serverLogIn.R")
-source("serverImportDocs.R")
-source("serverQuery.R")
-source("serverAnalysis.R")
+source("./serverLogIn.R")
+source("./serverImportDocs.R")
+source("./serverQuery.R")
+source("./serverAnalysis.R")
 
 
 
@@ -111,6 +111,7 @@ shinyServer(
 #   data <- db$find()
 #   data
 # }
+
 
 
 
